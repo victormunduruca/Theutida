@@ -1,5 +1,6 @@
 extends Area2D
 
+signal hit 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
@@ -9,6 +10,7 @@ var screensize
 
 func _ready():
 	screensize = get_viewport_rect().size
+
 
 
 func _process(delta):
@@ -28,8 +30,8 @@ func _process(delta):
 	else:
 		$AnimatedSprite.stop()
 	position += velocity * delta
-	position.x = clamp(position.x, 0, screensize.x) #restringe o tamanho do vetor
-	position.y = clamp(position.y, 0, screensize.y)
+	#position.x = clamp(position.x, 0, screensize.x) #restringe o tamanho do vetor
+	#position.y = clamp(position.y, 0, screensize.y)
 	if velocity.x != 0:
 	    $AnimatedSprite.animation = "right"
 	    $AnimatedSprite.flip_v = false
@@ -40,3 +42,15 @@ func _process(delta):
 	
 
 	
+
+
+func _on_Player_body_entered(body):
+	hide()
+	emit_signal("hit")
+	#$CollisionShape2D.disabled = true
+	
+func start(pos):
+    position = pos
+    show()
+    $CollisionShape2D.disabled = false
+
