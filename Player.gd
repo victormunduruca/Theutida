@@ -7,6 +7,8 @@ signal hit
 
 export (int) var speed #usa isso aqui pra poder mexer nessas configuracoes no inspector
 var screensize
+var anim = ""
+var animacao = ""
 var has_key 
 func _ready():
 	has_key = false
@@ -26,20 +28,21 @@ func _process(delta):
 		velocity.y -= 1
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite.play()
-	else:
-		$AnimatedSprite.stop()
+		anim = "swim"
+	
 	position += velocity * delta
 	#position.x = clamp(position.x, 0, screensize.x) #restringe o tamanho do vetor
 	#position.y = clamp(position.y, 0, screensize.y)
 	if velocity.x != 0:
-	    $AnimatedSprite.animation = "right"
-	    $AnimatedSprite.flip_v = false
-	    $AnimatedSprite.flip_h = velocity.x < 0
+	   	anim = "swim"
+	    $Sprite.flip_v = false
+	    $Sprite.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-	    $AnimatedSprite.animation = "up"
-	    $AnimatedSprite.flip_v = velocity.y > 0
-	
+	    anim = "swim"
+	    $Sprite.flip_v = velocity.y > 0
+	if(animacao != anim):
+		$Sprite/AnimationPlayer.play(anim)
+		animacao = anim
 
 	
 
