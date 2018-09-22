@@ -10,8 +10,13 @@ config_version=3
 
 [application]
 
-config/name="Theutida"
+config/name="New Game Project"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
 
 [rendering]
 
