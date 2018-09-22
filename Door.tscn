@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Door.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://LL- tranca unico.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Door" type="StaticBody2D" index="0"]
+[node name="Door" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -27,8 +27,8 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
-position = Vector2( 0, 13.5651 )
-scale = Vector2( 1, 1.42391 )
+position = Vector2( 8.67363, 13.7764 )
+scale = Vector2( 1.27105, 1.41731 )
 texture = ExtResource( 2 )
 
 

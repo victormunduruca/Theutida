@@ -101,8 +101,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9, 1, 1.4, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 2, 1, 0, 2 ]
+}
 
-[node name="Mob" type="RigidBody2D" index="0"]
+[node name="Mob" type="RigidBody2D"]
 
 position = Vector2( 167.435, 80.0551 )
 scale = Vector2( 0.75, 0.75 )
@@ -131,7 +143,7 @@ max_speed = 250
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( 687.764, 276.61 )
+position = Vector2( 929.995, 273.895 )
 rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -144,7 +156,7 @@ rect = Rect2( -10, -10, 20, 20 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 
 visible = false
-position = Vector2( 696.552, 273.339 )
+position = Vector2( 919.995, 276.562 )
 scale = Vector2( 1.15535, 1 )
 frames = SubResource( 3 )
 animation = "fly"
@@ -152,11 +164,11 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
 
-position = Vector2( 690.851, 266.454 )
+position = Vector2( 929.113, 269.413 )
 scale = Vector2( 1.15535, 1 )
 texture = ExtResource( 8 )
-flip_h = true
 hframes = 4
+frame = 2
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
@@ -168,7 +180,7 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 "anims/New Anim" = SubResource( 2 )
 blend_times = [  ]
-_sections_unfolded = [ "Playback Options" ]
+_sections_unfolded = [ "Pause" ]
 
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 

@@ -7,7 +7,7 @@
 [ext_resource path="res://Key.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=6]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -23,16 +23,24 @@ bounce = 0.0
 
 [node name="Sprite" type="Sprite" parent="Background" index="0"]
 
-position = Vector2( 1769.84, 423.865 )
-scale = Vector2( 5.52961, 5.3646 )
+position = Vector2( 731.632, 217.546 )
+scale = Vector2( 1.73865, 1.91874 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
-[node name="Parede" type="StaticBody2D" parent="." index="2"]
+position = Vector2( 120.222, -82.4936 )
 
-editor/display_folded = true
-position = Vector2( -527.893, 303.69 )
+[node name="Door" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 111.579, 586.059 )
+scale = Vector2( 0.520123, 0.430189 )
+
+[node name="Parede" type="StaticBody2D" parent="." index="3"]
+
+position = Vector2( -133.935, 69.0441 )
+scale = Vector2( 0.4, 0.4 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -40,6 +48,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Parede" index="0"]
 
@@ -67,22 +76,38 @@ scale = Vector2( 0.717309, 14.2809 )
 build_mode = 0
 polygon = PoolVector2Array( -10.7613, -113.528, 66.6109, -113.229, 70.2095, 19.9971, 64.395, 22.6256, 58.5801, 36.3523, -28.6387, 35.4762, -47.0173, 16.95 )
 
-[node name="Door" parent="Parede" index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 1627.24, -201.646 )
-
-[node name="LL- paredes mapa" type="Sprite" parent="Parede" index="5"]
+[node name="LL- paredes mapa" type="Sprite" parent="Parede" index="4"]
 
 position = Vector2( 2225.46, 439.444 )
 texture = ExtResource( 4 )
 
-[node name="Key" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Key" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 873.077, 254.199 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Mob" parent="." index="4" instance=ExtResource( 6 )]
+[node name="Mob" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( -212.58, 354.96 )
+position = Vector2( 282.054, -659.834 )
+rotation = 1.0472
+
+[node name="Mob2" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( -226.174, -64.6211 )
+rotation = 0.523599
+
+[node name="Mob3" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 15.8772, -197.102 )
+
+[node name="Mob4" parent="." index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 605.267, -501.335 )
+rotation = 0.698132
+
+[node name="Mob5" parent="." index="9" instance=ExtResource( 6 )]
+
+position = Vector2( 664.87, 1022.59 )
+rotation = -1.22173
 
 
