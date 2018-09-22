@@ -55,9 +55,11 @@ func _on_Player_body_entered(body):
 	#$CollisionShape2D.disabled = true
 	
 func start(pos):
-    position = pos
-    show()
-    $CollisionShape2D.disabled = false
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
+	has_key = false
+
 
 func opened_door():
 	print("opened door")
