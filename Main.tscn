@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://LL- paredes mapa.png" type="Texture" id=2]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=3]
+[ext_resource path="res://star.tscn" type="PackedScene" id=4]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 1926.58, 1324.71 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="MobTimer" type="Timer" parent="." index="1"]
 
@@ -31,7 +35,6 @@ autostart = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="4"]
 
-editor/display_folded = true
 position = Vector2( -527.893, 303.69 )
 input_pickable = false
 collision_layer = 1
@@ -43,23 +46,60 @@ bounce = 0.0
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D" index="0"]
 
-position = Vector2( 1165.73, 382.296 )
-scale = Vector2( 19.8637, 1 )
+position = Vector2( 4504.45, 1369.5 )
+scale = Vector2( 12.4461, 7.27954 )
 texture = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="1"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" index="1"]
 
-position = Vector2( 569.364, 392.634 )
+position = Vector2( 811.655, 2562.01 )
+rotation = -1.51835
+scale = Vector2( 4.78278, 5.4172 )
 build_mode = 0
-polygon = PoolVector2Array( -42.5436, -34.1553, 447.76, -36.1906, 1240.07, -39.4792, 1244.91, 11.3411, -35.2834, 19.0851 )
+polygon = PoolVector2Array( -38.2758, -38.1533, 452.551, -54.8021, 588.111, -42.1577, 556.005, 29.8512, 582.367, 28.6514, 417.203, 51.2023, 276.338, 49.7762, 218.664, 71.3745, 195.761, 47.8158, 168.792, 64.7072, 120.224, 23.925, 86.5875, 90.6884, -35.2834, 19.0851 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D" index="2"]
+
+position = Vector2( 8045.93, -56.2794 )
+rotation = 1.55387
+scale = Vector2( 4.85048, 5.21516 )
+build_mode = 0
+polygon = PoolVector2Array( -38.2758, -38.1533, 452.551, -54.8021, 588.111, -42.1577, 556.005, 29.8512, 582.367, 28.6514, 529.457, 52.9574, 417.203, 51.2023, 276.338, 49.7764, 218.664, 71.3745, 195.761, 47.8158, 168.792, 64.7072, 120.224, 23.925, 56.6219, 44.951, -35.2834, 19.0851 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D" index="3"]
+
+position = Vector2( 1881.97, 128.453 )
+rotation = -0.0243891
+scale = Vector2( 4.89062, 7.6327 )
+build_mode = 0
+polygon = PoolVector2Array( -124.45, -42.2111, 375.447, -52.1868, 452.551, -54.8021, 1326.6, -15.7562, 1227.67, 29.8781, 1148.62, 17.3192, 1065.92, 23.5753, 966.407, 6.92216, 901.073, 20.9988, 795.821, 0.481415, 739.247, 16.5822, 683.39, 13.8219, 617.681, 3.10604, 548.128, 7.93321, 462.979, 0.940636, 409.563, 11.4291, 361.47, -11.3838, 320.515, 12.0399, 33.0689, -2.00455, -149.578, -1.08494 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D" index="4"]
+
+position = Vector2( 2221.62, 2710.75 )
+scale = Vector2( 3.76597, 3.11269 )
+build_mode = 0
+polygon = PoolVector2Array( -334.143, -40.0556, -280.609, -95.5717, -234.724, -44.6819, 452.551, -54.8021, 1535.7, -44.6819, 1528.05, 38.5921, 582.367, 28.6514, 468.005, 16.2878, 60.0743, 18.5551, -292.081, 61.7237 )
 
 [node name="StartPosition" type="Position2D" parent="." index="5"]
 
-position = Vector2( 240, 450 )
+position = Vector2( 2081.76, 1488.17 )
+scale = Vector2( 2.13644, 2.02066 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Mob" parent="." index="6" instance=ExtResource( 3 )]
 
-position = Vector2( -212.58, 354.96 )
+position = Vector2( 1342.66, 1276.58 )
+
+[node name="Mob2" parent="." index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 2118.16, 1128.14 )
+rotation = 2.11221
+scale = Vector2( 0.5625, 0.5625 )
+
+[node name="Sprite" parent="." index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 2750.79, 987.059 )
 
 
+[editable path="Mob"]
