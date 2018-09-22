@@ -49,15 +49,20 @@ func _on_Player_body_entered(body):
 	if body.get_name() == "Key":
 		has_key = true
 		print("tem a chave porra")
-	if body.get_name() == "Door" and has_key:
+	elif body.get_name() == "Door" and has_key:
 		opened_door()
+	else:
+		hide()
+		#morre
 	emit_signal("hit")
 	#$CollisionShape2D.disabled = true
 	
 func start(pos):
-    position = pos
-    show()
-    $CollisionShape2D.disabled = false
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
+	has_key = false
+
 
 func opened_door():
 	print("opened door")
