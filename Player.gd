@@ -7,15 +7,15 @@ signal hit
 
 export (int) var speed #usa isso aqui pra poder mexer nessas configuracoes no inspector
 var screensize
-
+var has_key 
 func _ready():
+	has_key = false
 	screensize = get_viewport_rect().size
 
 
 
 func _process(delta):
 	var velocity = Vector2()
-	print(velocity)
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):
@@ -45,7 +45,12 @@ func _process(delta):
 
 
 func _on_Player_body_entered(body):
-	hide()
+	print(body.get_name())
+	if body.get_name() == "Key":
+		has_key = true
+		print("tem a chave porra")
+	if body.get_name() == "Door" and has_key:
+		opened_door()
 	emit_signal("hit")
 	#$CollisionShape2D.disabled = true
 	
@@ -54,3 +59,6 @@ func start(pos):
     show()
     $CollisionShape2D.disabled = false
 
+func opened_door():
+	print("opened door")
+	

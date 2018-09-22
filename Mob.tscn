@@ -77,7 +77,7 @@ tracks/2/keys = {
 "values": [ Vector2( 585.57, 272.733 ), Vector2( 972.387, 274.549 ), Vector2( 383.989, 265.469 ) ]
 }
 
-[node name="Mob" type="RigidBody2D" index="0"]
+[node name="Mob" type="RigidBody2D"]
 
 position = Vector2( 167.435, 80.0551 )
 scale = Vector2( 0.75, 0.75 )
