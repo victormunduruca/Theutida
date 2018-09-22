@@ -12,7 +12,7 @@ animations = [ {
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
