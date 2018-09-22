@@ -8,6 +8,32 @@
 [ext_resource path="res://enemyFlyingAlt_1.png" type="Texture" id=6]
 [ext_resource path="res://enemyFlyingAlt_2.png" type="Texture" id=7]
 
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 79.1615
+height = 36.8578
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "swim ",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "fly",
+"speed": 3.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
 [sub_resource type="Animation" id=3]
 
 resource_name = "New Anim"
@@ -38,36 +64,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true, false ]
 }
-
-[sub_resource type="SpriteFrames" id=1]
-
-animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "swim ",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "fly",
-"speed": 3.0
-} ]
-_sections_unfolded = [ "Resource" ]
-
-[sub_resource type="CapsuleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 79.1615
-height = 20.0
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 585.57, 272.733 ), Vector2( 972.387, 274.549 ), Vector2( 383.989, 265.469 ) ]
+}
 
 [node name="Mob" type="RigidBody2D" index="0"]
 
-position = Vector2( 187.865, 73.245 )
+position = Vector2( 167.435, 80.0551 )
 scale = Vector2( 0.75, 0.75 )
 input_pickable = false
 collision_layer = 1
@@ -92,7 +104,29 @@ _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Mate
 min_speed = 150
 max_speed = 250
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 383.989, 265.469 )
+rotation = 1.5708
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="1"]
+
+position = Vector2( 142.053, -20.4004 )
+scale = Vector2( 1, 1 )
+rect = Rect2( -10, -10, 20, 20 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( 408.232, 269.18 )
+scale = Vector2( 1.15535, 1 )
+frames = SubResource( 1 )
+animation = "fly"
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = "New Anim"
@@ -103,28 +137,6 @@ playback_speed = 1.0
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
-
-position = Vector2( 489.692, 274.509 )
-scale = Vector2( 1.15535, 1 )
-frames = SubResource( 1 )
-animation = "fly"
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="AnimatedSprite" index="0"]
-
-position = Vector2( -489.935, -294.05 )
-scale = Vector2( 0.865541, 1 )
-rect = Rect2( -10, -10, 20, 20 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite" index="1"]
-
-position = Vector2( -18.5969, -7.02722 )
-rotation = 1.5708
-scale = Vector2( 1, 0.865541 )
-shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[connection signal="screen_exited" from="AnimatedSprite/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 
 
